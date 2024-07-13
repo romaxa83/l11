@@ -8,6 +8,7 @@
         "php": "^8.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "lorisleiva/laravel-actions": "^2.8",
         "nwidart/laravel-modules": "^11.0",
         "opcodesio/log-viewer": "^3.10",
         "sebastian/diff": "^5.0.3"
@@ -19,7 +20,8 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
         "nunomaduro/phpinsights": "^2.11",
-        "phpunit/phpunit": "^10.4.2"
+        "phpunit/phpunit": "^10.4.2",
+        "wulfheart/laravel-actions-ide-helper": "^0.7.3"
     },
     "autoload": {
         "psr-4": {
@@ -38,7 +40,9 @@
         "ide-helper": [
             "@php artisan ide-helper:generate",
             "@php artisan ide-helper:meta",
-            "@php artisan ide-helper:eloquent"
+            "@php artisan ide-helper:models -M",
+            "@php artisan ide-helper:eloquent",
+            "@php artisan ide-helper:actions"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

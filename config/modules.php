@@ -102,7 +102,7 @@ return [
         */
         'generator' => [
             // app/
-            'actions' => ['path' => 'Actions', 'generate' => false],
+            'actions' => ['path' => 'Actions', 'generate' => true],
             'casts' => ['path' => 'Casts', 'generate' => false],
             'channels' => ['path' => 'Broadcasting', 'generate' => false],
             'class' => ['path' => 'Classes', 'generate' => false],
@@ -131,7 +131,7 @@ return [
             'traits' => ['path' => 'Traits', 'generate' => false],
 
             // app/Http/
-            'controller' => ['path' => 'Controllers', 'generate' => true],
+            'controller' => ['path' => 'Controllers', 'generate' => false],
             'filter' => ['path' => 'Middleware', 'generate' => false],
             'request' => ['path' => 'Requests', 'generate' => false],
 

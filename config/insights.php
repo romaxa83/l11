@@ -66,7 +66,8 @@ return [
     */
 
     'exclude' => [
-          'stubs'
+          'stubs',
+        '_ide_helper_actions.php'
     ],
 
     'add' => [

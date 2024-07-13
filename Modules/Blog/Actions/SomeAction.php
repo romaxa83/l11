@@ -1,10 +1,10 @@
 <?php
 
-namespace $CLASS_NAMESPACE$;
+namespace Modules\Blog\Actions;
 
 use Lorisleiva\Actions\Concerns\AsController;
 
-class $CLASS$
+class SomeAction
 {
     use AsController;
 
