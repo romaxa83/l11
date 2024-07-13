@@ -66,7 +66,7 @@ return [
     */
 
     'exclude' => [
-        //  'path/to/directory-or-file'
+          'stubs'
     ],
 
     'add' => [

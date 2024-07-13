@@ -8,12 +8,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class $CLASS$ extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    /** @test */
+    public function example(): void
     {
         $this->assertTrue(true);
     }
