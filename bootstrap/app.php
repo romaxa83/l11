@@ -15,4 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
-    })->create();
+    })
+    ->withSchedule(new \App\Console\ScheduleHandler())
+    ->create()
+    ;

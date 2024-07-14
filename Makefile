@@ -82,6 +82,7 @@ info_domen: ## Линки на сервисы сайта (для разных о
 	printf "\\033[36m[x] LOCAL\\033[0m\\n";
 	echo ${site};
 	echo ${site}/log-viewer;
+	echo ${site}/telescope;
 	echo ${site}:8025;
 #======================================
 # Into container
