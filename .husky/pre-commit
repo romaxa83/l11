@@ -1,1 +1,2 @@
-
+docker exec -t L11__php php artisan insights --fix --no-interaction
+git add $(git diff --cached --name-only --diff-filter=ACM)

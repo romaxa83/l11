@@ -15,7 +15,3 @@ All setting described in the file
 ```
 commitlint.config.js
 ```
-
-## Merge commit with semi-linear history
-
-Use line git history. Read [documentation](https://docs.gitlab.com/ee/user/project/merge_requests/methods/#merge-commit-with-semi-linear-history)
