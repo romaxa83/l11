@@ -13,4 +13,3 @@ class PostFactory extends Factory
         return [];
     }
 }
-

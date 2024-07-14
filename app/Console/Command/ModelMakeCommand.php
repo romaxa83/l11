@@ -2,6 +2,7 @@
 
 namespace App\Console\Command;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class ModelMakeCommand extends \Nwidart\Modules\Commands\Make\ModelMakeCommand
@@ -62,7 +63,7 @@ class ModelMakeCommand extends \Nwidart\Modules\Commands\Make\ModelMakeCommand
     {
         $pieces = preg_split('/(?=[A-Z])/', $this->argument('model'), -1, PREG_SPLIT_NO_EMPTY);
 
-        $result = \Arr::map($pieces, fn ($item) => Str::lower($item));
+        $result = Arr::map($pieces, fn ($item) => Str::lower($item));
         $lastIndex = count($result) - 1;
         $result[$lastIndex] = Str::plural($result[$lastIndex]);
 

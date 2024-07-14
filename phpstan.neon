@@ -1,0 +1,12 @@
+parameters:
+    # уровень проверки = 0 (минимум) т.к. анализ кода производит PHP Insights
+    level: 0
+    # сканируемые папаки
+    paths:
+        - app/
+        - tests/
+        - Modules/
+    # макс. допустимая когнитивная сложность для класса и функции
+    cognitive_complexity:
+        class: 50
+        function: 8

@@ -2,7 +2,7 @@
 
 namespace Modules\Blog\Providers;
 
-use App;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class BlogServiceProvider extends ServiceProvider

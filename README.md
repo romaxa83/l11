@@ -1,3 +1,14 @@
+### Анализатор кода
+Для проверки стиля кода и исправление синтаксических ошибок используется пакет [PHP Insights](https://phpinsights.com/)
+```sh 
+docker compose exec php php artisan insights --fix
+```
+для проверки когнитивной сложности кода - [cognitive-complexity](https://github.com/TomasVotruba/cognitive-complexity/?tab=readme-ov-file),
+для своей работы он использует phpStan, конфиг находиться в файле - phpstan.neon
+```sh 
+docker compose exec php vendor/bin/phpstan
+```
+Эти команда запускаются перед коммитом
 ### Branch naming
 Requirement described in the file
 ```

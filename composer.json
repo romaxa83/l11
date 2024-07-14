@@ -20,7 +20,9 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
         "nunomaduro/phpinsights": "^2.11",
+        "phpstan/extension-installer": "^1.4",
         "phpunit/phpunit": "^10.4.2",
+        "tomasvotruba/cognitive-complexity": "^0.2.3",
         "wulfheart/laravel-actions-ide-helper": "^0.7.3"
     },
     "autoload": {
@@ -74,7 +76,8 @@
             "pestphp/pest-plugin": true,
             "php-http/discovery": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "wikimedia/composer-merge-plugin": true
+            "wikimedia/composer-merge-plugin": true,
+            "phpstan/extension-installer": true
         }
     },
     "minimum-stability": "stable",
