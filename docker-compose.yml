@@ -48,7 +48,7 @@ services:
     #        entrypoint: ["/bin/bash", "/var/www/html/docker/bin/php_start.sh"]
 
     db:
-        image: postgis/postgis:16-3.4-alpine
+        image: &db-image postgis/postgis:16-3.4-alpine
         container_name: ${APP_NAME}__db
         hostname: ${APP_NAME}__db
         restart: unless-stopped
@@ -65,6 +65,22 @@ services:
             interval: 5s
             timeout: 10s
             retries: 20
+
+    db_test:
+        image: *db-image
+        container_name: ${APP_NAME}__db_testing
+        hostname: ${APP_NAME}__db_testing
+        restart: unless-stopped
+        # розширюємо кількість одночасних підключень до Postgres БД та кількість транзакцій. Важливо для комфортного запуску паралельних тестів.
+        command: postgres -c 'max_connections=250' -c 'max_locks_per_transaction=128'
+        ports:
+            - ${DOCKER_ADDRESS}:5433:${DB_PORT}
+        environment:
+            POSTGRES_DB: db_testing
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - /var/lib/postgresql/data
 
     redis:
         image: redis:7.2.4-alpine

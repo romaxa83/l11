@@ -30,4 +30,6 @@ _ide_helper_actions.php
 .gitlab-ci.yml
 psysh
 setup-local.sh
+.env.testing
+.env.testing.example
 
