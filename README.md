@@ -9,6 +9,14 @@ docker compose exec php php artisan insights --fix
 docker compose exec php vendor/bin/phpstan
 ```
 Эти команда запускаются перед коммитом
+
+### Поиск не используемых зависимостей
+используется пакет - [composer-unused](https://github.com/composer-unused/composer-unused/)
+```sh
+# запуск
+docker compose exec php ./vendor/bin/composer-unused
+```
+если пакет нужно исключить из проверки, прописываем название пакета в файле - composer-unused.php
 ### Branch naming
 Requirement described in the file
 ```

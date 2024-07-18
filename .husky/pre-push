@@ -1,1 +1,2 @@
 npx validate-branch-name
+docker compose exec php ./vendor/bin/composer-unused

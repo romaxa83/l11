@@ -16,6 +16,7 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.1",
         "fakerphp/faker": "^1.23",
+        "icanhazstring/composer-unused": "dev-main",
         "laravel/pint": "^1.13",
         "laravel/telescope": "^5.1",
         "mockery/mockery": "^1.6",
