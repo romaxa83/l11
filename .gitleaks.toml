@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+# коммиты которые нужно исключить
+[allowlist]
+commits = []

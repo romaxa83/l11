@@ -17,6 +17,22 @@ docker compose exec php vendor/bin/phpstan
 docker compose exec php ./vendor/bin/composer-unused
 ```
 если пакет нужно исключить из проверки, прописываем название пакета в файле - composer-unused.php
+
+### Поиск секретов в гит истории
+используется пакет - [gitleaks](https://github.com/gitleaks/gitleaks/)
+```sh
+# пулим последнюю актуальную версию
+docker pull zricethezav/gitleaks:latest
+# запускаем проверку
+docker run -v ./:/path zricethezav/gitleaks:latest protect \
+    --source="/path" \
+    --config=/path/.gitleaks.toml \
+    --report-path=/path/gitleaks-report.json \
+    --staged
+```
+настройки в файле .gitleaks.toml, отчет в файле - gitleaks-report.json
+вызывается на pre-commit
+
 ### Branch naming
 Requirement described in the file
 ```

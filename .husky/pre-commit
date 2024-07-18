@@ -2,3 +2,9 @@ docker exec -t L11__php php artisan ide-helper:models -M
 docker exec -t L11__php php artisan insights --fix --no-interaction
 docker exec -t L11__php vendor/bin/phpstan
 git add $(git diff --cached --name-only --diff-filter=ACM)
+docker pull zricethezav/gitleaks:latest
+docker run -v ./:/path zricethezav/gitleaks:latest protect \
+    --source="/path" \
+    --config=/path/.gitleaks.toml \
+    --report-path=/path/gitleaks-report.json \
+    --staged
