@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
+use App\Services\ProjectStructure;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenDefineFunctions;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenFinalClasses;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenPrivateMethods;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenTraits;
 use NunoMaduro\PhpInsights\Domain\Metrics\Architecture\Classes;
+use PhpCsFixer\Fixer\ClassNotation\SingleTraitInsertPerStatementFixer;
 use SlevomatCodingStandard\Sniffs\Commenting\UselessFunctionDocCommentSniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\DisallowEmptySniff;
 use SlevomatCodingStandard\Sniffs\Namespaces\AlphabeticallySortedUsesSniff;
@@ -73,6 +75,7 @@ return [
     'add' => [
         Classes::class => [
             ForbiddenFinalClasses::class,
+            SingleTraitInsertPerStatementFixer::class
         ],
     ],
 
@@ -98,7 +101,13 @@ return [
             'lineLimit' => 100,
             'absoluteLineLimit' => 120,
             'ignoreComments' => true
-        ]
+        ],
+        \SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff::class => [
+            'exclude' => [
+                'app/Exceptions/Handler.php',
+                ...ProjectStructure::filesInModuleSubDir('Resources'),
+            ]
+        ],
     ],
 
     /*
