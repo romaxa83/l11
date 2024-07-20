@@ -8,7 +8,20 @@ use Lorisleiva\Actions\Concerns\AsController;
 use Modules\Auth\Models\User;
 use Modules\Auth\Requests\LoginRequest;
 use Modules\Auth\Resources\LoginUserResource;
+use OpenAPI\Operation\ApiPost;
+use OpenAPI\Request\RequestJson;
+use OpenAPI\Responses\ResponseJsonSuccess;
+use OpenAPI\Responses\ResponseUnauthorized;
 use Throwable;
+
+#[ApiPost(
+    path: '/api/v1/login',
+    tags: ['Auth'],
+    description: 'Login user'
+)]
+#[ResponseUnauthorized]
+#[ResponseJsonSuccess(LoginUserResource::class)]
+#[RequestJson(LoginRequest::class)]
 
 class LoginUser
 {

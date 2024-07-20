@@ -83,6 +83,7 @@ info_domen: ## Линки на сервисы сайта (для разных о
 	echo ${site};
 	echo ${site}/log-viewer;
 	echo ${site}/telescope;
+	echo ${site}/api/documentation;
 	echo ${site}:8025;
 #======================================
 # Into container

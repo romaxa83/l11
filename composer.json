@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.3",
         "arondeparon/laravel-request-sanitizer": "^6.0",
+        "darkaonline/l5-swagger": "^8.6",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
@@ -18,6 +19,7 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.1",
         "fakerphp/faker": "^1.23",
+        "hotmeteor/spectator": "^2.0",
         "icanhazstring/composer-unused": "dev-main",
         "laravel/pint": "^1.13",
         "laravel/telescope": "^5.1",
@@ -34,7 +36,8 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Modules\\": "Modules/"
+            "Modules\\": "Modules/",
+            "OpenAPI\\": "OpenAPI/"
         }
     },
     "autoload-dev": {
