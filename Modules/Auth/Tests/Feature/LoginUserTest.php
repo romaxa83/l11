@@ -3,7 +3,7 @@
 namespace Modules\Auth\Tests\Feature;
 
 use Modules\Auth\Models\PersonalAccessToken;
-use Modules\Auth\Models\User;
+use Modules\Auth\Tests\Builders\UserBuilder;
 use Tests\TestCase;
 
 class LoginUserTest extends TestCase
@@ -13,10 +13,19 @@ class LoginUserTest extends TestCase
         'password' => 'some_password',
     ];
 
+    protected UserBuilder $userBuilder;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->userBuilder = resolve(UserBuilder::class);
+    }
+
     /** @test */
     public function canLogin(): void
     {
-        User::factory()->create(self::CREDENTIALS);
+        $this->userBuilder->credentials(self::CREDENTIALS)->create();
 
         $this->postJson(route('api.v1.login'), self::CREDENTIALS)
             ->assertValidRequest()
@@ -30,10 +39,10 @@ class LoginUserTest extends TestCase
         $email = 'some_email@test.com';
         $password = 'some_password';
 
-        User::factory()->create([
+        $this->userBuilder->credentials([
             'email' => $email,
             'password' => $password,
-        ]);
+        ])->create();
 
         $this->postJson(route('api.v1.login'), [
             'email' => 'some_eMaiL@teSt.com',
@@ -46,7 +55,7 @@ class LoginUserTest extends TestCase
     /** @test */
     public function cannotLoginWithWrongPassword(): void
     {
-        $user = User::factory()->create(self::CREDENTIALS);
+        $user = $this->userBuilder->credentials(self::CREDENTIALS)->create();
 
         $this->postJson(route('api.v1.login'), [
             'email' => $user->email,
@@ -62,7 +71,7 @@ class LoginUserTest extends TestCase
     /** @test */
     public function cannotLoginWithWrongEmail(): void
     {
-        User::factory()->create(self::CREDENTIALS);
+        $this->userBuilder->credentials(self::CREDENTIALS)->create();
 
         $this->postJson(route('api.v1.login'), [
             'email' => 'soem_wrong_email@test.com',
@@ -78,11 +87,11 @@ class LoginUserTest extends TestCase
     /** @test */
     public function canLoginAsActualUser(): void
     {
-        User::factory()->create();
+        $this->userBuilder->create();
 
-        $user = User::factory()->create(self::CREDENTIALS);
+        $user = $this->userBuilder->credentials(self::CREDENTIALS)->create();
 
-        User::factory()->create();
+        $this->userBuilder->create();
 
         $response = $this->postJson(route('api.v1.login'), self::CREDENTIALS);
 
@@ -114,7 +123,7 @@ class LoginUserTest extends TestCase
     /** @test */
     public function canHideTokenIdDisplay(): void
     {
-        User::factory()->create(self::CREDENTIALS);
+        $this->userBuilder->credentials(self::CREDENTIALS)->create();
 
         $response = $this->postJson(route('api.v1.login'), self::CREDENTIALS);
 

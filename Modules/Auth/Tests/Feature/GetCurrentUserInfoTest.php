@@ -3,14 +3,25 @@
 namespace Modules\Auth\Tests\Feature;
 
 use Modules\Auth\Models\User;
+use Modules\Auth\Tests\Builders\UserBuilder;
 use Tests\TestCase;
 
 class GetCurrentUserInfoTest extends TestCase
 {
+    protected UserBuilder $userBuilder;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->userBuilder = resolve(UserBuilder::class);
+    }
+
     /** @test */
     public function canGetCurrentUserInfo(): void
     {
-        $user = User::factory()->create();
+        /** @var $user User */
+        $user = $this->userBuilder->create();
 
         $user = $user->fresh();
 

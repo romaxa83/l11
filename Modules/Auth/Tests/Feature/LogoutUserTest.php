@@ -3,16 +3,25 @@
 namespace Modules\Auth\Tests\Feature;
 
 use Modules\Auth\Models\User;
+use Modules\Auth\Tests\Builders\UserBuilder;
 use Tests\TestCase;
 
 class LogoutUserTest extends TestCase
 {
-    /**
-     * @test
-     */
+    protected UserBuilder $userBuilder;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->userBuilder = resolve(UserBuilder::class);
+    }
+
+    /** @test */
     public function canLogout(): void
     {
-        $user = User::factory()->create();
+        /** @var $user User */
+        $user = $this->userBuilder->create();
 
         $this->actingAsUser($user);
 
