@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\DbConnections;
 use Illuminate\Support\Str;
 
 return [
@@ -79,7 +80,7 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
+        DbConnections::DEFAULT => [
             'driver' => 'pgsql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),

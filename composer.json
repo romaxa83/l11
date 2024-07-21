@@ -38,7 +38,10 @@
             "Database\\Seeders\\": "database/seeders/",
             "Modules\\": "Modules/",
             "OpenAPI\\": "OpenAPI/"
-        }
+        },
+        "files": [
+            "app/Helpers/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
