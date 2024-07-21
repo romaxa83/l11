@@ -1,3 +1,9 @@
+### API документация
+используется пакет [darkaonline/l5-swagger](https://github.com/DarkaOnLine/L5-Swagger), документация
+описывается через атрибуты оберткой над которой использует этот пакет [Swagger-PHP](https://zircote.github.io/swagger-php/).
+Описанная документация тестируется с помощью пакета [spectator](https://github.com/hotmeteor/spectator).
+Дока находиться по пути ```/api/documentation```, обновляется автоматически при посещении данной страницы.
+
 ### Анализатор кода
 Для проверки стиля кода и исправление синтаксических ошибок используется пакет [PHP Insights](https://phpinsights.com/)
 ```sh 

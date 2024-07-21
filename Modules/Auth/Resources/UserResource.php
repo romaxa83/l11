@@ -5,15 +5,15 @@ namespace Modules\Auth\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Auth\Models\User;
-use OpenAPI\Properties\PropertySlug;
+use OpenAPI\Properties\PropertyInteger;
 use OpenAPI\Properties\PropertyString;
 use OpenAPI\Schemas\BaseScheme;
 
 #[BaseScheme(
     resource: UserResource::class,
     properties: [
+        new PropertyInteger(property: 'id'),
         new PropertyString(property: 'name'),
-        new PropertySlug(),
     ]
 )]
 /**

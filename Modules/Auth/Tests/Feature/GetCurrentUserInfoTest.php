@@ -19,11 +19,10 @@ class GetCurrentUserInfoTest extends TestCase
         $this->getJson(route('api.v1.current-user'))
             ->assertValidRequest()
             ->assertValidResponse(200)
-//            ->assertSuccessful()
-//            ->assertJson([
-//                'id' => $user->id,
-//                'name' => $user->name,
-//            ])
+            ->assertJson([
+                'id' => $user->id,
+                'name' => $user->name,
+            ])
         ;
     }
 

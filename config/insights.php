@@ -12,6 +12,7 @@ use NunoMaduro\PhpInsights\Domain\Metrics\Architecture\Classes;
 use PhpCsFixer\Fixer\ClassNotation\SingleTraitInsertPerStatementFixer;
 use SlevomatCodingStandard\Sniffs\Commenting\UselessFunctionDocCommentSniff;
 use SlevomatCodingStandard\Sniffs\ControlStructures\DisallowEmptySniff;
+use SlevomatCodingStandard\Sniffs\Functions\FunctionLengthSniff;
 use SlevomatCodingStandard\Sniffs\Namespaces\AlphabeticallySortedUsesSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff;
@@ -107,6 +108,9 @@ return [
                 'app/Exceptions/Handler.php',
                 ...ProjectStructure::filesInModuleSubDir('Resources'),
             ]
+        ],
+        FunctionLengthSniff::class => [
+            'maxLinesLength' => 30, // устанавливаем максимальную длину функций.
         ],
     ],
 

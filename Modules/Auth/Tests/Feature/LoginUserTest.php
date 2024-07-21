@@ -19,10 +19,8 @@ class LoginUserTest extends TestCase
         User::factory()->create(self::CREDENTIALS);
 
         $this->postJson(route('api.v1.login'), self::CREDENTIALS)
-            ->assertSuccessful()
-            ->assertJsonStructure([
-                'token'
-            ])
+            ->assertValidRequest()
+            ->assertValidResponse(200)
         ;
     }
 
